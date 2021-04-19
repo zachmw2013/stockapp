@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<center>
+    <form method="POST">
+        {% csrf_token %} 
+        ticker : <input type="text" name="ticker">
+        <button class="button" type="submit">get prices</button>
+    </form>
+
+        
+       
+   
+<!--<button class="button" onclick="location.href='{% url 'script' %}'">get prices</button> -->
+
+</center>
+{% for i in ts %}
+<div class="stockvalues">
+    <center>
+    <br>
+    <strong>opening price</strong> 
+    <br>
+    <h4 class="open">{{i.open}}</h4>
+    <br>
+    <strong>high price</strong>
+    <br>
+    <h4>{{i.high}}</h4>
+    <br>
+    <strong>low price</strong>
+    <br>
+    <h4>{{i.low}}</h4>
+    <br>
+    <strong>closing price</strong>
+    <br>
+    <h4>{{i.close}}</h4>
+    <br>
+    <strong>Volume</strong>
+    <br>
+    <h4>{{i.volume}}</h4>
+    </center>
+</div>
+
+{% endfor %}
+ 
+
+    
+{% endblock content %}

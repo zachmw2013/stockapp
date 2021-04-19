@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+       <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+
+        <header>
+        
+        
+            <nav>
+                <div class="logo">
+                    <h4>stock app</h4>
+                </div>
+                <ul class="navlink">
+                    <li><a href="{% url 'home' %}" style="text-decoration:none">Home</a></li>
+                    <li><a href="{% url 'about' %}" style="text-decoration:none">About</a></li>
+                    <li><a href="{% url 'test' %}" style="text-decoration:none">Stocks</a></li>
+                    <li><a href="{% url 'login' %}" style="text-decoration:none">Login</a></li>
+                    <li><a href="{% url 'registerpage' %}" style="text-decoration:none">Register</a></li>
+                </ul>
+                <div class="tres">
+                    <div class="line 1"></div>
+                    <div class="line 2"></div>
+                    <div class="line 3"></div>
+                </div>
+            </nav>
+        
+
+        </header>
+</body>
+
+{% block content %}
+{% endblock content %}
+
+</html>

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>Register</h1>
+<h3>press register once then once you register you can login and it will redirect you to the home page</h3>
+<body>
+    <form method="POST" action="{% url 'register' %}">
+        {% csrf_token %}
+
+        {{form|crispy}}
+
+        <button type="submit">Register</button>
+    </form>
+</body>
+{% endblock content %}
