@@ -1,46 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<body>
 <center>
-    <form method="POST">
-        {% csrf_token %} 
-        ticker : <input type="text" name="ticker">
-        <button class="button" type="submit">get prices</button>
-    </form>
+<form method="GET">
+     {% csrf_token %} 
+    <input type="text" name="ticker">
+    <button class="button" type="submit" action= "{% url 'script' %}">get prices</button>
+    <br>
+    
+    {% for i in ts %}
+    <div class="stockvalues">
 
-        
-       
-   
-<!--<button class="button" onclick="location.href='{% url 'script' %}'">get prices</button> -->
-
-</center>
-{% for i in ts %}
-<div class="stockvalues">
-    <center>
-    <br>
-    <strong>opening price</strong> 
-    <br>
-    <h4 class="open">{{i.open}}</h4>
-    <br>
-    <strong>high price</strong>
-    <br>
-    <h4>{{i.high}}</h4>
-    <br>
-    <strong>low price</strong>
-    <br>
-    <h4>{{i.low}}</h4>
-    <br>
-    <strong>closing price</strong>
-    <br>
-    <h4>{{i.close}}</h4>
-    <br>
-    <strong>Volume</strong>
-    <br>
-    <h4>{{i.volume}}</h4>
+        <br>
+        <strong>opening price</strong> 
+        <br>
+        <p>{{i.open}}</p>
+        <br>
+        <strong>high price</strong>
+        <br>
+        <h4>{{i.high}}</h4>
+        <br>
+        <strong>low price</strong>
+        <br>
+        <h4>{{i.low}}</h4>
+        <br>
+        <strong>closing price</strong>
+        <br>
+        <h4>{{i.close}}</h4>
+        <br>
+        <strong>Volume</strong>
+        <br>
+        <h4>{{i.volume}}</h4>
+    {% endfor %}
     </center>
-</div>
+    </div>
+</form>
+</body>
 
-{% endfor %}
+
  
 
     

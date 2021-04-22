@@ -13,7 +13,7 @@ urlpatterns = [
     path('register', views.register, name='register'),
     path('login/', views.login, name='login'),
     path(r'^', views.button),
-    path(r'^output$', views.output, name="script"),
+    path(r'^output$', views.output, name='script'),
     #path('test/', views.input, name="input"),
     #path('test/', views.input),
     #path('', views.index, name='index'),

@@ -54,17 +54,14 @@ def button(request):
     return render(request, 'test.html')
 
 #def input(request):
-   #if request.method == 'POST':
-    #   userinput = request.POST.get('ticker')
-   #print(userinput)
+  # if response.method == 'GET':
+   #    userinput = request.get("ticker")
    #return render(request,'test.html')
 
 def output(request):
-    userinput = request.POST.get('ticker')
-    td = TDClient(apikey="5ab205ca85414927b3b757076d329696")
-    ts=td.time_series(symbol=userinput, interval="1min", outputsize=1).as_json()
-    print(ts)
-
-    return render(request,'test.html',{'ts':ts})
-    
-
+    if request.GET.get("ticker"):
+        userinput = request.GET.get("ticker")
+        td = TDClient(apikey="5ab205ca85414927b3b757076d329696")
+        ts=td.time_series(symbol=userinput, interval="1min", outputsize=1).as_json()
+        print(ts)
+        return render(request,'test.html',{'script':ts})
