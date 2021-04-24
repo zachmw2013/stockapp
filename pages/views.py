@@ -63,5 +63,4 @@ def output(request):
         userinput = request.GET.get("ticker")
         td = TDClient(apikey="5ab205ca85414927b3b757076d329696")
         ts=td.time_series(symbol=userinput, interval="1min", outputsize=1).as_json()
-        print(ts)
         return render(request,'test.html',{'script':ts})

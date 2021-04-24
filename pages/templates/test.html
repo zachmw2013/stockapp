@@ -7,7 +7,7 @@
      {% csrf_token %} 
     <input type="text" name="ticker">
     <button class="button" type="submit" action= "{% url 'script' %}">get prices</button>
-    <br>
+    <br> 
     
     {% for i in ts %}
     <div class="stockvalues">
